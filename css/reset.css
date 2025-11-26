@@ -1,0 +1,142 @@
+/*==============================
+reset
+==============================*/
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+fieldset,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+figcaption,
+figure,
+address,
+option,
+pre,
+select {
+  margin: 0;
+  padding: 0;
+}
+
+address,
+em {
+  font-style: normal;
+}
+
+th {
+  font-weight: normal;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+th {
+  text-align: left;
+}
+
+legend {
+  display: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+small {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+img,
+fieldset {
+  border: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+address,
+body,
+dd,
+dl,
+dt,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+option,
+p,
+pre,
+select {
+  -webkit-text-size-adjust: 100%;
+}
+
+li,
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  font-optical-sizing: auto;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  line-height: 2;
+  color: #555;
+}
+
+body.is-lock,
+html.is-lock {
+  overflow: hidden;
+  height: 100vh;
+  position: fixed;
+  width: 100%;
+  touch-action: none;
+}
+
+a {
+  transition: 0.3s ease-in-out;
+}

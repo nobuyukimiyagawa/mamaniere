@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,user-scalable=yes">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/under.css">
+
+  <!-- JS -->
+  <script src="../js/jquery-3.6.0.min.js"></script>
+  <script src="../js/main.js"></script>
+
+  <title>コラム一覧｜mamaniere</title>
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <ul class="header_nav" id="global_nav">
+      <li><a href="../"><span></span>ホーム</a></li>
+      <li><a href="../about/"><span></span>ママニエール</a></li>
+      <li><a href="../analysis/"><span></span>体調チェック</a></li>
+      <li><a href="../service/"><span></span>サービス検索</a></li>
+      <li><a href="../care/"><span></span>お役立ち情報</a></li>
+      <li class="current"><a href="../column/"><span></span>コラム</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+<section class="column_archive_page">
+  <div class="under_page_title">
+    <h1>コラム</h1>
+  </div>
+
+  <div class="inner">
+    <ul class="column_card_list" id="column_list"></ul>
+
+    <!-- ページネーション -->
+    <div class="column_archive_page_pagination" id="pagination"></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="inner">
+    <div class="footer_nav">
+      <ul>
+        <li><a href="#">利用規約</a></li>
+        <li><a href="#">監修</a></li>
+        <li><a href="#">お店について</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   🔹 コラム投稿データ（WP の代わり）
+   ※ ここは後で「200件分」自動生成もできる
+============================================================ */
+const COLUMN_POSTS = [
+  {
+    id: 1,
+    title: "育児中のママが持っておきたい心の余白とは？",
+    subtitle: "心と体を整える小さなヒント",
+    thumbnail: "../images/col_dummy01.jpg",
+    url: "../column/post1.html"
+  },
+  {
+    id: 2,
+    title: "赤ちゃんとの生活リズムを整える方法",
+    subtitle: "専門家が教えるやさしい育児習慣",
+    thumbnail: "../images/col_dummy02.jpg",
+    url: "../column/post2.html"
+  },
+  {
+    id: 3,
+    title: "産後ママのための時短美容テク",
+    subtitle: "5分でできるキレイの習慣",
+    thumbnail: "../images/col_dummy03.jpg",
+    url: "../column/post3.html"
+  }
+];
+
+/* ============================================================
+   🔹 一覧レンダリング
+============================================================ */
+function renderList(page = 1, perPage = 9) {
+  const start = (page - 1) * perPage;
+  const end = start + perPage;
+  const posts = COLUMN_POSTS.slice(start, end);
+
+  const listEl = document.getElementById("column_list");
+  listEl.innerHTML = "";
+
+  posts.forEach(post => {
+    const li = document.createElement("li");
+    li.className = "column_card";
+
+    li.innerHTML = `
+      <a href="${post.url}" class="column_card_inner">
+        <div class="column_card_thumb">
+          <img src="${post.thumbnail}" alt="">
+        </div>
+
+        <div class="column_card_body">
+          <div class="column_title">
+            <h2 class="column_card_title">${post.title}</h2>
+            ${post.subtitle ? `<p class="column_card_subtitle">${post.subtitle}</p>` : ""}
+          </div>
+        </div>
+      </a>
+    `;
+
+    listEl.appendChild(li);
+  });
+
+  renderPagination(page);
+}
+
+/* ============================================================
+   🔹 ページネーション
+============================================================ */
+function renderPagination(currentPage) {
+  const total = COLUMN_POSTS.length;
+  const perPage = 9;
+  const totalPages = Math.ceil(total / perPage);
+
+  const container = document.getElementById("pagination");
+  container.innerHTML = "";
+
+  if (totalPages <= 1) return;
+
+  // 前へ
+  if (currentPage > 1) {
+    const prev = document.createElement("a");
+    prev.href = "#";
+    prev.textContent = "前へ";
+    prev.onclick = e => { e.preventDefault(); renderList(currentPage - 1); };
+    container.appendChild(prev);
+  }
+
+  // ページ番号
+  for (let i = 1; i <= totalPages; i++) {
+    const span = document.createElement("span");
+    span.textContent = i;
+    if (i === currentPage) span.classList.add("current");
+    else span.onclick = () => renderList(i);
+    container.appendChild(span);
+  }
+
+  // 次へ
+  if (currentPage < totalPages) {
+    const next = document.createElement("a");
+    next.href = "#";
+    next.textContent = "次へ";
+    next.onclick = e => { e.preventDefault(); renderList(currentPage + 1); };
+    container.appendChild(next);
+  }
+}
+
+// 初期表示
+renderList();
+
+</script>
+
+</body>
+</html>

@@ -31,15 +31,15 @@
   </script>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/assets/css/reset.css">
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <link rel="stylesheet" href="/assets/css/front.css">
-  <link rel="stylesheet" href="/assets/css/fontawesome.min.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/front.css">
+  <link rel="stylesheet" href="assets/css/fontawesome.min.css">
 
   <!-- JS -->
-  <script src="/assets/js/jquery-3.6.0.min.js"></script>
-  <script src="/assets/js/main.js"></script>
-  <script src="/assets/js/column-editor.js"></script>
+  <script src="assets/js/jquery-3.6.0.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/column-editor.js"></script>
 
 </head>
 
@@ -82,7 +82,7 @@
           <div class="top_fv_image_fixed_bg">
             <div class="top_fv_image_fixed_img" role="img" aria-label="赤ちゃんを抱っこする母親"
               data-swiper-parallax="-23%"
-              style="background-image: url('/assets/images/fv_img01.png');">
+              style="background-image: url('assets/images/fv_img01.png');">
             </div>
           </div>
         </div>
@@ -97,7 +97,7 @@
           <div class="top_fv_image_fixed_bg">
             <div class="top_fv_image_fixed_img" role="img" aria-label="こどもに勉強を教える母親"
               data-swiper-parallax="-23%"
-              style="background-image: url('/assets/images/fv_img02.png');">
+              style="background-image: url('assets/images/fv_img02.png');">
             </div>
           </div>
         </div>
@@ -117,7 +117,7 @@
           <div class="top_fv_image_fixed_bg">
             <div class="top_fv_image_fixed_img" role="img" aria-label="赤ちゃんのお世話をする母親"
               data-swiper-parallax="-23%"
-              style="background-image: url('/assets/images/fv_img03.png');">
+              style="background-image: url('assets/images/fv_img03.png');">
             </div>
           </div>
         </div>
@@ -142,7 +142,7 @@
           </p>
           <div class="youtube_icon">
             <a href="#" target="_blank">
-              <img src="/assets/images/youtube_icon.png" alt="YouTube">
+              <img src="assets/images/youtube_icon.png" alt="YouTube">
             </a>
           </div>
         </div>
@@ -152,7 +152,7 @@
   </div>
 
   <h1>
-    <img src="/assets/images/logo.png" alt="ママニエール">
+    <img src="assets/images/logo.png" alt="ママニエール">
   </h1>
 
   <div class="fv_links_list">
@@ -186,7 +186,7 @@
 
   <div class="scroll_down">
     <p>More Information</p>
-    <img src="/assets/images/scroll_arrow.png" alt="スクロールアイコン">
+    <img src="assets/images/scroll_arrow.png" alt="スクロールアイコン">
   </div>
 </section>
 
@@ -209,11 +209,11 @@
   <div class="inner">
     <div class="banner_image">
       <a href="/column/">
-        <img src="/assets/images/top_bnr01.png" alt="産後サポートコラム">
+        <img src="assets/images/top_bnr01.png" alt="産後サポートコラム">
       </a>
 
       <a href="/care/">
-        <img src="/assets/images/top_bnr02.png" alt="美容・育児等お役立ち情報">
+        <img src="assets/images/top_bnr02.png" alt="美容・育児等お役立ち情報">
       </a>
     </div>
   </div>
@@ -232,7 +232,7 @@
       </div>
       <div class="youtube_img">
         <a href="#" target="_blank">
-          <img src="/assets/images/youtube_img.jpg" alt="YouTube">
+          <img src="assets/images/youtube_img.jpg" alt="YouTube">
         </a>
       </div>
     </div>

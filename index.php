@@ -1,4 +1,76 @@
-<?php include 'header.php'; ?>
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,user-scalable=yes" />
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- Adobe Fonts -->
+  <script>
+    (function (d) {
+      var config = {
+        kitId: 'mov4iku',
+        scriptTimeout: 3000,
+        async: true
+      },
+      h = d.documentElement, t = setTimeout(function () {
+        h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
+      }, config.scriptTimeout), tk = d.createElement("script"), f = false, s = d.getElementsByTagName("script")[0], a;
+      h.className += " wf-loading";
+      tk.src = 'https://use.typekit.net/' + config.kitId + '.js';
+      tk.async = true;
+      tk.onload = tk.onreadystatechange = function () {
+        a = this.readyState;
+        if (f || a && a != "complete" && a != "loaded") return;
+        f = true;
+        clearTimeout(t);
+        try { Typekit.load(config) } catch (e) {}
+      };
+      s.parentNode.insertBefore(tk, s)
+    })(document);
+  </script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/reset.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/front.css">
+  <link rel="stylesheet" href="/assets/css/fontawesome.min.css">
+
+  <!-- JS -->
+  <script src="/assets/js/jquery-3.6.0.min.js"></script>
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/column-editor.js"></script>
+
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <ul class="header_nav" id="global_nav">
+      <li><a href="/"><span></span>ホーム</a></li>
+      <li><a href="/about/"><span></span>ママニエール</a></li>
+      <li><a href="/analysis/"><span></span>体調チェック</a></li>
+      <li><a href="/service/"><span></span>サービス検索</a></li>
+      <li><a href="/care/"><span></span>お役立ち情報</a></li>
+      <li><a href="/column/"><span></span>コラム</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+<!-- 現在ページにcurrentをつけるJS -->
+<script>
+  const nav = document.getElementById("global_nav");
+  const links = nav.querySelectorAll("a");
+  links.forEach(link => {
+    if (link.getAttribute("href") === window.location.pathname) {
+      link.parentElement.classList.add("current");
+    }
+  });
+</script>
+
 
 <section class="top_fv">
   <div class="swiper" id="top_fv_slider">
@@ -167,4 +239,20 @@
   </div>
 </section>
 
-<?php include 'footer.php'; ?>
+</main>
+
+<footer>
+  <div class="inner">
+    <div class="footer_nav">
+      <ul>
+        <li><a href="#">利用規約</a></li>
+        <li><a href="#">監修</a></li>
+        <li><a href="#">お店について</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
+

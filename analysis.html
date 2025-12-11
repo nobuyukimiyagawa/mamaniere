@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,user-scalable=yes" />
+	<meta name="format-detection" content="telephone=no">
+	<title>ママの体調チェック - ママニエール</title>
+	<!-- フォント -->
+	<script>
+		(function (d) {
+			var config = {
+				kitId: 'mov4iku',
+				scriptTimeout: 3000,
+				async: true
+			},
+			h = d.documentElement, t = setTimeout(function () { h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive"; }, config.scriptTimeout), tk = d.createElement("script"), f = false, s = d.getElementsByTagName("script")[0], a; h.className += " wf-loading"; tk.src = 'https://use.typekit.net/' + config.kitId + '.js'; tk.async = true; tk.onload = tk.onreadystatechange = function () { a = this.readyState; if (f || a && a != "complete" && a != "loaded") return; f = true; clearTimeout(t); try { Typekit.load(config) } catch (e) { } }; s.parentNode.insertBefore(tk, s)
+		})(document);
+	</script>
+	<!-- CSS -->
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/fontawesome.min.css">
+	<link rel="stylesheet" href="css/under.css">
+</head>
+<body>
+<header></header>
+<main>
+	<section class="under_analysis">
+    <div class="page_title_common">
+      <h1>ママの体調チェック</h1>
+      <p class="under_title_en">Health Check</p>
+    </div>
+		<div class="inner">
+    <p class="under_top_text">質問に答えて、産後ママのこころとからだをチェック！<br>産後のゆらぎに気づくセルフチェックで、今の状態を分析します。</p>
+	<div class="analysis_quiz" data-questions='["何をしていても<br>楽しく感じられないことが<br>ありますか？","理由もなく涙が出たり、<br>気分の浮き沈みが激しいことが<br>ありますか？","自分を責める気持ちになることが<br>ありますか？","不安や焦りで<br>頭がいっぱいになることが<br>ありますか？","しっかり眠っても疲れが取れず、<br>だるさが続くと感じますか？","頭痛・肩こり・腰痛など、<br>身体の不調を感じることが<br>増えていますか？","食欲の変化や胃の不快感などで、<br>食事リズムが乱れることが<br>ありますか？","周囲に相談できる人がおらず、<br>孤独を感じることがありますか？","パートナーや家族との関係に<br>ストレスを感じることがありますか？","他のママと比べて<br>「自分だけうまくできていない」と<br>感じることがありますか？"]' data-choices='[{"label":"まったくない","score":0},{"label":"ときどきある","score":1},{"label":"よくある","score":2},{"label":"ほぼ毎日ある","score":3}]' data-results='[{"min":0,"max":5,"label":"安定タイプ","url":"result01.html"},{"min":6,"max":10,"label":"軽いゆらぎタイプ","url":"result02.html"},{"min":11,"max":17,"label":"中程度のゆらぎタイプ","url":"result03.html"},{"min":18,"max":23,"label":"注意タイプ","url":"result04.html"},{"min":24,"max":30,"label":"高ストレスタイプ","url":"result05.html"}]'>
+		<div class="analysis_body">
+			<div class="analysis_question">
+				<p class="analysis_question__number">Q<span class="analysis_question__index">1</span></p>
+				<p class="analysis_question__text"></p>
+			</div>
+			<div class="analysis_options"></div>
+			<div class="analysis_navigation">
+				<button type="button" class="analysis_nav_button analysis_nav_button--back" disabled>
+					Back
+				</button>
+				<button type="button" class="analysis_nav_button analysis_nav_button--next" disabled>
+					Next
+				</button>
+			</div>
+		</div>
+		<div class="analysis_progressbar">
+				<div class="analysis_progressbar_track" aria-hidden="true">
+					<div class="analysis_progressbar_fill" style="width:0;"></div>
+				</div>
+		</div>
+		<div class="inner analysis_result" hidden>
+			<p class="analysis_result__message"></p>
+			<p class="analysis_result__cta">結果ページへ移動できない場合は、再読み込み後にもう一度お試しください。</p>
+		</div>
+</div>
+		</div>
+</section>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function () {
+		const quiz = document.querySelector('.analysis_quiz');
+		if (!quiz) {
+			return;
+		}
+
+		const questions = JSON.parse(quiz.dataset.questions || '[]');
+		const choices = JSON.parse(quiz.dataset.choices || '[]');
+		const results = JSON.parse(quiz.dataset.results || '[]');
+
+		if (!questions.length || !choices.length) {
+			return;
+		}
+
+		const progressFill = quiz.querySelector('.analysis_progressbar_fill');
+		const questionIndexEl = quiz.querySelector('.analysis_question__index');
+		const questionTextEl = quiz.querySelector('.analysis_question__text');
+		const optionsWrapper = quiz.querySelector('.analysis_options');
+		const body = quiz.querySelector('.analysis_body');
+		const resultBox = quiz.querySelector('.analysis_result');
+		const resultMessage = quiz.querySelector('.analysis_result__message');
+		const backButton = quiz.querySelector('.analysis_nav_button--back');
+		const nextButton = quiz.querySelector('.analysis_nav_button--next');
+
+		const state = {
+			index: 0,
+			totalScore: 0,
+			answers: [] // 各質問の回答を保存
+		};
+
+		const updateProgress = () => {
+			if (!progressFill) {
+				return;
+			}
+			const current = state.index + 1;
+			const percent = Math.min((current / questions.length) * 100, 100);
+			progressFill.style.width = `${percent}%`;
+		};
+
+		const renderQuestion = () => {
+			const currentQuestion = questions[state.index];
+			questionIndexEl.textContent = state.index + 1;
+			questionTextEl.innerHTML = currentQuestion;
+
+			optionsWrapper.innerHTML = '';
+
+			// 現在の質問の既存の回答を取得
+			const currentAnswer = state.answers[state.index];
+
+			choices.forEach((choice) => {
+				const button = document.createElement('button');
+				button.type = 'button';
+				button.className = 'analysis_option';
+				button.dataset.score = choice.score;
+				button.textContent = choice.label;
+				
+				// 既存の回答があれば選択状態を復元
+				if (currentAnswer !== undefined && currentAnswer === choice.score) {
+					button.classList.add('selected');
+				}
+				
+				button.addEventListener('click', () => handleOptionClick(choice.score, button));
+				optionsWrapper.appendChild(button);
+			});
+
+			// ナビゲーションボタンの状態を更新
+			updateNavigationButtons();
+
+			updateProgress();
+		};
+
+		const findResult = (score) => {
+			return results.find((range) => score >= range.min && score <= range.max);
+		};
+
+		const handleOptionClick = (score, buttonElement) => {
+			// 既存の選択を解除
+			optionsWrapper.querySelectorAll('.analysis_option').forEach(btn => {
+				btn.classList.remove('selected');
+			});
+
+			// 選択されたボタンにスタイルを適用
+			buttonElement.classList.add('selected');
+
+			// 回答を保存（既存の回答を上書き）
+			state.answers[state.index] = Number(score);
+
+			// 進むボタンを有効化
+			updateNavigationButtons();
+		};
+
+		const updateNavigationButtons = () => {
+			// 戻るボタン：最初の質問でない場合は有効
+			if (backButton) {
+				backButton.disabled = state.index === 0;
+			}
+
+			// 進むボタン：回答が選択されている場合は有効
+			if (nextButton) {
+				nextButton.disabled = state.answers[state.index] === undefined;
+			}
+		};
+
+		const handleNext = () => {
+			if (state.answers[state.index] === undefined) {
+				return; // 回答が選択されていない場合は何もしない
+			}
+
+			// スコアを計算（既に計算済みの場合は再計算しない）
+			if (state.index === questions.length - 1) {
+				// 最後の質問の場合、合計スコアを計算
+				state.totalScore = state.answers.reduce((sum, score) => sum + (score || 0), 0);
+				const matchedResult = findResult(state.totalScore);
+
+				if (matchedResult && matchedResult.url) {
+					window.location.href = matchedResult.url;
+				} else {
+					body.hidden = true;
+					resultBox.hidden = false;
+					const label = matchedResult ? matchedResult.label : '結果未設定';
+					resultMessage.textContent = `合計${state.totalScore}点：${label}`;
+				}
+				return;
+			}
+
+			state.index += 1;
+			renderQuestion();
+		};
+
+		const handleBack = () => {
+			if (state.index === 0) {
+				return; // 最初の質問の場合は何もしない
+			}
+
+			state.index -= 1;
+			renderQuestion();
+		};
+
+		// ナビゲーションボタンのイベントリスナー
+		if (backButton) {
+			backButton.addEventListener('click', handleBack);
+		}
+		if (nextButton) {
+			nextButton.addEventListener('click', handleNext);
+		}
+
+		renderQuestion();
+	});
+</script>
+</main>
+<footer></footer>
+<!-- JavaScript -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="js/load-parts.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  window.LoadParts.loadAll('analysis');
+});
+</script>
+</body>
+</html>
+

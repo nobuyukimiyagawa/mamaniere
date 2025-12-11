@@ -1,117 +1,53 @@
 <!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,user-scalable=yes" />
-  <meta name="format-detection" content="telephone=no">
-
-  <!-- Adobe Fonts -->
-  <script>
-    (function (d) {
-      var config = {
-        kitId: 'mov4iku',
-        scriptTimeout: 3000,
-        async: true
-      },
-      h = d.documentElement, t = setTimeout(function () {
-        h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
-      }, config.scriptTimeout), tk = d.createElement("script"), f = false, s = d.getElementsByTagName("script")[0], a;
-      h.className += " wf-loading";
-      tk.src = 'https://use.typekit.net/' + config.kitId + '.js';
-      tk.async = true;
-      tk.onload = tk.onreadystatechange = function () {
-        a = this.readyState;
-        if (f || a && a != "complete" && a != "loaded") return;
-        f = true;
-        clearTimeout(t);
-        try { Typekit.load(config) } catch (e) {}
-      };
-      s.parentNode.insertBefore(tk, s)
-    })(document);
-  </script>
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/under.css">
-  <link rel="stylesheet" href="css/fontawesome.min.css">
-
-  <!-- JS -->
-  <script src="js/jquery-3.6.0.min.js"></script>
-  <script src="js/main.js"></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,user-scalable=yes" />
+	<meta name="format-detection" content="telephone=no">
+	<title>ママニエール - 産後ケアサイト</title>
+	<!-- フォント -->
+	<script>
+		(function (d) {
+			var config = {
+				kitId: 'mov4iku',
+				scriptTimeout: 3000,
+				async: true
+			},
+			h = d.documentElement, t = setTimeout(function () { h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive"; }, config.scriptTimeout), tk = d.createElement("script"), f = false, s = d.getElementsByTagName("script")[0], a; h.className += " wf-loading"; tk.src = 'https://use.typekit.net/' + config.kitId + '.js'; tk.async = true; tk.onload = tk.onreadystatechange = function () { a = this.readyState; if (f || a && a != "complete" && a != "loaded") return; f = true; clearTimeout(t); try { Typekit.load(config) } catch (e) { } }; s.parentNode.insertBefore(tk, s)
+		})(document);
+	</script>
+	<!-- CSS -->
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/fontawesome.min.css">
+	<link rel="stylesheet" href="css/under.css">
 </head>
-
 <body>
-
-<header>
-  <nav>
-    <ul class="header_nav" id="global_nav">
-      <li><a href="/"><span></span>ホーム</a></li>
-      <li class="current"><a href="/about/"><span></span>ママニエール</a></li>
-      <li><a href="/analysis/"><span></span>体調チェック</a></li>
-      <li><a href="/service/"><span></span>サービス検索</a></li>
-      <li><a href="/care/"><span></span>お役立ち情報</a></li>
-      <li><a href="/column/"><span></span>コラム</a></li>
-    </ul>
-  </nav>
-</header>
-
+<header></header>
 <main>
-
 <section class="under_about">
-  <h1 class="page_title">
-    <span>ABOUT</span>ママニエールについて
-  </h1>
-
+<h1 class="page_title"><span>About mamaniere</span>ママニエール</h1>
   <div class="inner">
     <div class="about_img">
       <img src="images/about_img01.jpg" alt="子育てをする母親">
     </div>
-
     <div class="about_text">
-      <p>
-        赤ちゃんは尊い、赤ちゃんを育てるあなたも尊い。<br>
-        産後はどうしても赤ちゃんファーストになってしまうけど、<br>
-        赤ちゃんをいたわるように、<br>
-        ママ自信のことも大切にして欲しいから。
-      </p>
-
-      <p>
-        産後のママがハッピーに過ごせるように<br>
-        ママニエールは、産後のママの心と体の状態を<br>
-        セルフチェック。<br>
-        産後のママにピッタリなサービス、<br>
-        子育て、健康、美容などの情報を掲載。<br>
-        「今の自分」を知って「自分らしい育児」を楽しむための<br>
-        WEBサービスです。
-      </p>
+      <p>赤ちゃんは尊い、赤ちゃんを育てるあなたも尊い。<br>産後はどうしても赤ちゃんファーストになってしまうけど、<br>赤ちゃんをいたわるように、<br>ママ自信のことも大切にして欲しいから。</p>
+      <p>産後のママがハッピーに過ごせるように<br>ママニエールは、産後のママの心と体の状態を<br>セルフチェック。<br>産後のママにピッタリなサービス、<br>子育て、健康、美容などの情報を掲載。<br>「今の自分」を知って「自分らしい育児」を楽しむための<br>WEBサービスです。</p>
     </div>
   </div>
 </section>
-
 </main>
-
-<footer>
-  <div class="inner">
-    <div class="footer_nav">
-      <ul>
-        <li><a href="#">利用規約</a></li>
-        <li><a href="#">監修</a></li>
-        <li><a href="#">お店について</a></li>
-      </ul>
-    </div>
-  </div>
-</footer>
-
+<footer></footer>
+<!-- JavaScript -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="js/load-parts.js"></script>
+<script src="js/main.js"></script>
 <script>
-  const nav = document.getElementById("global_nav");
-  const links = nav.querySelectorAll("a");
-  links.forEach(link => {
-    if (link.getAttribute("href") === window.location.pathname) {
-      link.parentElement.classList.add("current");
-    }
-  });
+document.addEventListener('DOMContentLoaded', function() {
+  window.LoadParts.loadAll('about');
+});
 </script>
-
 </body>
 </html>
+

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,user-scalable=yes" />
+	<meta name="format-detection" content="telephone=no">
+	<title>ママの体調チェック - 軽いゆらぎタイプ - ママニエール</title>
+	<!-- フォント -->
+	<script>
+		(function (d) {
+			var config = {
+				kitId: 'mov4iku',
+				scriptTimeout: 3000,
+				async: true
+			},
+			h = d.documentElement, t = setTimeout(function () { h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive"; }, config.scriptTimeout), tk = d.createElement("script"), f = false, s = d.getElementsByTagName("script")[0], a; h.className += " wf-loading"; tk.src = 'https://use.typekit.net/' + config.kitId + '.js'; tk.async = true; tk.onload = tk.onreadystatechange = function () { a = this.readyState; if (f || a && a != "complete" && a != "loaded") return; f = true; clearTimeout(t); try { Typekit.load(config) } catch (e) { } }; s.parentNode.insertBefore(tk, s)
+		})(document);
+	</script>
+	<!-- CSS -->
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/fontawesome.min.css">
+	<link rel="stylesheet" href="css/under.css">
+</head>
+<body>
+<header></header>
+<main>
+<section class="under_analysis result result02">
+<div class="page_title_common">
+  <h1>ママの体調チェック</h1>
+  <p class="under_title_en">Health Check</p>
+</div>
+		<div class="inner">
+    <p class="under_top_text">質問に答えて、産後ママのこころとからだをチェック！<br>産後のゆらぎに気づくセルフチェックで、今の状態を分析します。</p>
+	<div class="analysis_quiz">
+		<div class="analysis_body">
+      <h2>今のあなたは<span>軽いゆらぎタイプ</span></h2>
+		</div>
+    <div class="result_image">
+      <img src="images/result02_illust.png" alt="軽いゆらぎタイプ">
+      <h3>少しお疲れかも</h3>
+    </div>
+    <div class="result_text">
+    <p>無理をしている兆しがあります。<br>心身なのか人間関係なのか全体的なのか、<br>ポイントを把握しましょう。まずは、一人で頑張りすぎず、<br>誰かに頼ったり、話したりすることが大切です。</p>
+    </div>
+    <div class="share_btn">
+      <a href="#"
+        data-share-title="ママの体調チェック"
+        data-share-text="セルフチェックの結果をシェアしましょう"
+        data-share-url="result02.html">結果をシェア</a>
+    </div>
+		<div class="analysis_progressbar">
+				<div class="analysis_progressbar_track" aria-hidden="true">
+					<div class="analysis_progressbar_fill" style="width:100%;"></div>
+				</div>
+		</div>
+		<div class="inner analysis_result" hidden>
+			<p class="analysis_result__message"></p>
+			<p class="analysis_result__cta">結果ページへ移動できない場合は、再読み込み後にもう一度お試しください。</p>
+		</div>
+</div>
+		</div>
+</section>
+</main>
+<footer></footer>
+<!-- JavaScript -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="js/load-parts.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  window.LoadParts.loadAll('analysis');
+});
+</script>
+</body>
+</html>
+

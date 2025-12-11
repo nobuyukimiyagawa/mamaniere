@@ -1,271 +1,155 @@
 <!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,user-scalable=yes" />
-  <meta name="format-detection" content="telephone=no">
-
-  <!-- Adobe Fonts -->
-  <script>
-    (function (d) {
-      var config = {
-        kitId: 'mov4iku',
-        scriptTimeout: 3000,
-        async: true
-      },
-      h = d.documentElement, t = setTimeout(function () {
-        h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
-      }, config.scriptTimeout), tk = d.createElement("script"), f = false, s = d.getElementsByTagName("script")[0], a;
-      h.className += " wf-loading";
-      tk.src = 'https://use.typekit.net/' + config.kitId + '.js';
-      tk.async = true;
-      tk.onload = tk.onreadystatechange = function () {
-        a = this.readyState;
-        if (f || a && a != "complete" && a != "loaded") return;
-        f = true;
-        clearTimeout(t);
-        try { Typekit.load(config) } catch (e) {}
-      };
-      s.parentNode.insertBefore(tk, s)
-    })(document);
-  </script>
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/front.css">
-  <link rel="stylesheet" href="css/fontawesome.min.css">
-
-  <!-- JS -->
-  <script src="js/jquery-3.6.0.min.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/column-editor.js"></script>
-
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,user-scalable=yes" />
+	<meta name="format-detection" content="telephone=no">
+	<title>ママニエール - 産後ケアサイト</title>
+	<!-- フォント -->
+	<script>
+		(function (d) {
+			var config = {
+				kitId: 'mov4iku',
+				scriptTimeout: 3000,
+				async: true
+			},
+			h = d.documentElement, t = setTimeout(function () { h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive"; }, config.scriptTimeout), tk = d.createElement("script"), f = false, s = d.getElementsByTagName("script")[0], a; h.className += " wf-loading"; tk.src = 'https://use.typekit.net/' + config.kitId + '.js'; tk.async = true; tk.onload = tk.onreadystatechange = function () { a = this.readyState; if (f || a && a != "complete" && a != "loaded") return; f = true; clearTimeout(t); try { Typekit.load(config) } catch (e) { } }; s.parentNode.insertBefore(tk, s)
+		})(document);
+	</script>
+	<!-- CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/fontawesome.min.css">
+	<link rel="stylesheet" href="css/front.css">
+	<!-- 共通headパーツ読み込み -->
+	<script src="js/load-parts.js"></script>
 </head>
-
 <body>
-
-<header>
-  <nav>
-    <ul class="header_nav" id="global_nav">
-      <li><a href="/"><span></span>ホーム</a></li>
-      <li><a href="about/"><span></span>ママニエール</a></li>
-      <li><a href="analysis/"><span></span>体調チェック</a></li>
-      <li><a href="service/"><span></span>サービス検索</a></li>
-      <li><a href="care/"><span></span>お役立ち情報</a></li>
-      <li><a href="column/"><span></span>コラム</a></li>
-    </ul>
-  </nav>
-</header>
-
+<header></header>
 <main>
-
-<!-- 現在ページにcurrentをつけるJS -->
-<script>
-  const nav = document.getElementById("global_nav");
-  const links = nav.querySelectorAll("a");
-  links.forEach(link => {
-    if (link.getAttribute("href") === window.location.pathname) {
-      link.parentElement.classList.add("current");
-    }
-  });
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  new Swiper("#top_fv_slider", {
-    loop: true,
-    speed: 1500,
-    parallax: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-    effect: "slide",
-  });
-});
-</script>
-
-<section class="top_fv">
-  <div class="swiper" id="top_fv_slider">
-    <div class="swiper-wrapper">
-
-      <!-- Slide 1 -->
-      <div class="swiper-slide">
+  <section class="top_fv" id="top_fv">
+    <div class="top_fv_container">
+      <div class="top_fv_slide" data-slide="0">
         <div class="top_fv_image">
           <div class="top_fv_image_fixed_bg">
-            <div class="top_fv_image_fixed_img" role="img" aria-label="赤ちゃんを抱っこする母親"
-              data-swiper-parallax="-23%"
-              style="background-image: url('images/fv_img01.png');">
-            </div>
+            <div class="top_fv_image_fixed_img" role="img" aria-label="赤ちゃんを抱っこする母親" style="background-image: url('images/fv_img01.png');"></div>
           </div>
         </div>
-        <div class="top_fv_text">
-          <p>いつもがんばっている<br>ママをサポートする<br>産後ケアサイト<br>「mamaniere」へようこそ！<br>充実の育児タイムを<br>mamaniereとともに。</p>
-        </div>
       </div>
-
-      <!-- Slide 2 -->
-      <div class="swiper-slide">
+      <div class="top_fv_slide" data-slide="1">
         <div class="top_fv_image">
           <div class="top_fv_image_fixed_bg">
-            <div class="top_fv_image_fixed_img" role="img" aria-label="こどもに勉強を教える母親"
-              data-swiper-parallax="-23%"
-              style="background-image: url('images/fv_img02.png');">
-            </div>
+            <div class="top_fv_image_fixed_img" role="img" aria-label="こどもに勉強を教える母親" style="background-image: url('images/fv_img02.png');"></div>
           </div>
         </div>
-        <div class="top_fv_text">
-          <p>こんな時にはセルフチェックで<br>自身の状態を把握しましょう！</p>
-          <ul>
-            <li>育児をより快適にしたい時</li>
-            <li>お子様の成長によって<br>生活習慣が変わってきた時</li>
-            <li>漠然とした不安や焦りが<br>消えない時</li>
-          </ul>
-        </div>
       </div>
-
-      <!-- Slide 3 -->
-      <div class="swiper-slide">
+      <div class="top_fv_slide" data-slide="2">
         <div class="top_fv_image">
           <div class="top_fv_image_fixed_bg">
-            <div class="top_fv_image_fixed_img" role="img" aria-label="赤ちゃんのお世話をする母親"
-              data-swiper-parallax="-23%"
-              style="background-image: url('images/fv_img03.png');">
-            </div>
+            <div class="top_fv_image_fixed_img" role="img" aria-label="赤ちゃんのお世話をする母親" style="background-image: url('images/fv_img03.png');"></div>
           </div>
         </div>
-        <div class="top_fv_text">
-          <p>育児に役立つサービスや<br>情報を活用して<br>心身ともに健やかな育児を。<span>by POLA</span></p>
-        </div>
       </div>
-
-      <!-- Slide 4 -->
-      <div class="swiper-slide">
+      <div class="top_fv_slide" data-slide="3">
         <div class="top_fv_image">
           <div class="top_fv_image_fixed_bg">
-            <div class="top_fv_image_fixed_img" role="img" aria-label="ママニエールイラスト"
-              data-swiper-parallax="-23%"
-              style="background-image: url('images/fv_img04.png');">
-            </div>
-          </div>
-        </div>
-        <div class="top_fv_text">
-          <p>今、気づいてほしい。<br>あなたに秘められた<br>大きな愛と、可能性に。
-            <span class="mt05">mamaniereが全てのママに贈る<br>ショートムービー。</span>
-          </p>
-          <div class="youtube_icon">
-            <a href="#" target="_blank">
-              <img src="images/youtube_icon.png" alt="YouTube">
-            </a>
+            <div class="top_fv_image_fixed_img" role="img" aria-label="ママニエールイラスト" style="background-image: url('images/fv_img04.png');"></div>
           </div>
         </div>
       </div>
-
     </div>
-  </div>
-
-  <h1>
-    <img src="images/logo.png" alt="ママニエール">
-  </h1>
-
-  <div class="fv_links_list">
-    <a class="fv_links_item" href="/analysis/">
-      <div class="fv_links_item_content">
-        <p>育児の節目に心身の状態をチェック！<br>ママのコンディションも大切に。</p>
-      </div>
-      <div class="fv_links_item_title">
-        <p>ママの体調をチェック</p>
-      </div>
-    </a>
-
-    <a class="fv_links_item" href="/service/">
-      <div class="fv_links_item_content">
-        <p>ママをサポート＆育児に役立つ<br>さまざまなサービスをご紹介！</p>
-      </div>
-      <div class="fv_links_item_title">
-        <p>サービスをさがす</p>
-      </div>
-    </a>
-
-    <a class="fv_links_item" href="/column/">
-      <div class="fv_links_item_content">
-        <p>スペシャリストのアドバイスや<br>親子の体験アクティビティをシェア。</p>
-      </div>
-      <div class="fv_links_item_title">
-        <p>コラムを読む</p>
-      </div>
-    </a>
-  </div>
-
-  <div class="scroll_down">
-    <p>More Information</p>
-    <img src="images/scroll_arrow.png" alt="スクロールアイコン">
-  </div>
-</section>
-
-<section class="top_about">
-  <div class="inner">
-    <div class="about_text">
-      <p>毎日十分すぎるくらい、がんばっているママへ。<br>
-        ママ自身のことも大切にして欲しい<br>
-        そんな想いから生まれた「ママニエール」。<br>
-        独自の分析システムでママの“今”を見つめ、<br>
-        分析結果に基づいた、多彩な情報をご案内。<br>
-        「ママニエール」は、いつだってママの味方です。
-      </p>
+    <!-- テキストは固定位置で独立 -->
+    <div class="top_fv_text" data-text="0">
+      <p>いつもがんばっている<br>ママをサポートする<br>産後ケアサイト<br>「mamaniere」へようこそ！<br>充実の育児タイムを<br>mamaniereとともに。</p>
     </div>
-    <div class="btn"><a href="about">mamaniere詳細はこちら</a></div>
-  </div>
-</section>
-
-<section class="top_banner">
-  <div class="inner">
-    <div class="banner_image">
-      <a href="column/">
-        <img src="images/top_bnr01.png" alt="産後サポートコラム">
-      </a>
-
-      <a href="/care/">
-        <img src="images/top_bnr02.png" alt="美容・育児等お役立ち情報">
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="top_youtube">
-  <div class="inner">
-    <div class="youtube_content">
-      <div class="youtube_text">
-        <h2>Short Movie</h2>
-        <p>今、気づいてほしい。<br>
-          あなたに秘められた<br>
-          大きな愛と、可能性に。<br>
-          <span>mamaniereが全てのママに贈る<br>ショートムービー。</span>
-        </p>
-      </div>
-      <div class="youtube_img">
-        <a href="#" target="_blank">
-          <img src="images/youtube_img.jpg" alt="YouTube">
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-</main>
-
-<footer>
-  <div class="inner">
-    <div class="footer_nav">
+    <div class="top_fv_text" data-text="1">
+      <p>こんな時にはセルフチェックで<br>自身の状態を把握しましょう！</p>
       <ul>
-        <li><a href="#">利用規約</a></li>
-        <li><a href="#">監修</a></li>
-        <li><a href="#">お店について</a></li>
+        <li>育児をより快適にしたい時</li>
+        <li>お子様の成長によって<br>生活習慣が変わってきた時</li>
+        <li>漠然とした不安や焦りが<br>消えない時</li>
       </ul>
     </div>
-  </div>
-</footer>
-
+    <div class="top_fv_text" data-text="2">
+      <p>育児に役立つサービスや<br>情報を活用して<br>心身ともに健やかな育児を。<span>by POLA</span></p>
+    </div>
+    <div class="top_fv_text" data-text="3">
+      <p>今、気づいてほしい。<br>あなたに秘められた<br>大きな愛と、可能性に。<span class="mt05">mamaniereが全てのママに贈る<br>ショートムービー。</span></p>
+      <div class="youtube_icon"><a href="#" target="_blank"><img src="images/youtube_icon.png" alt="YouTube"></a></div>
+    </div>
+    <h1><img src="images/logo.png" alt="ママニエール"></h1>
+      <div class="fv_links_list">
+        <a class="fv_links_item" href="analysis.html">
+          <div class="fv_links_item_content">
+            <p>育児の節目に心身の状態をチェック！<br>ママのコンディションも大切に。</p>
+          </div>
+          <div class="fv_links_item_title">
+            <p>ママの体調をチェック</p>
+          </div>
+        </a>
+        <a class="fv_links_item" href="service/service.html">
+          <div class="fv_links_item_content">
+            <p>ママをサポート＆育児に役立つ<br>さまざまなサービスをご紹介！</p>
+          </div>
+          <div class="fv_links_item_title">
+            <p>サービスをさがす</p>
+          </div>
+        </a>
+        <a class="fv_links_item" href="column/column.html">
+          <div class="fv_links_item_content">
+            <p>スペシャリストのアドバイスや<br>親子の体験アクティビティをシェア。</p>
+          </div>
+          <div class="fv_links_item_title">
+            <p>コラムを読む</p>
+          </div>
+        </a>
+    </div>
+    <div class="scroll_down">
+      <p>More Information</p>
+      <img src="images/scroll_arrow.png" alt="スクロールアイコン">
+    </div>
+  </section>
+  <section class="top_about">
+    <div class="inner">
+    <div class="about_text">
+      <p>毎日十分すぎるくらい、がんばっているママへ。<br>ママ自身のことも大切にして欲しい<br>そんな想いから生まれた「ママニエール」。<br>独自の分析システムでママの"今"を見つめ、<br>分析結果に基づいた、多彩な情報をご案内。<br>「ママニエール」は、いつだってママの味方です。</p>
+    </div>
+    <div class="btn"><a href="about.html">mamaniere詳細はこちら</a></div>
+    </div>
+  </section>
+  <section class="top_banner">
+    <div class="inner">
+      <div class="banner_image">
+        <a href="column/column.html"><img src="images/top_bnr01.png" alt="産後サポートコラム"></a>
+        <a href="care/care.html"><img src="images/top_bnr02.png" alt="美容・育児等お役立ち情報"></a>
+      </div>
+    </div>
+  </section>
+  <section class="top_youtube">
+    <div class="inner">
+      <div class="youtube_content">
+        <div class="youtube_text">
+          <h2>Short Movie</h2>
+          <p>今、気づいてほしい。<br>あなたに秘められた<br>大きな愛と、可能性に。<br><span>mamaniereが全てのママに贈る<br>ショートムービー。</span></p>
+        </div>
+        <div class="youtube_img">
+          <a href="#" target="_blank"><img src="images/youtube_img.jpg" alt="YouTube"></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer></footer>
+<!-- JavaScript -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  window.LoadParts.loadAll('index');
+});
+</script>
 </body>
 </html>
 
